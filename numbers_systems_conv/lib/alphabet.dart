@@ -17,4 +17,4 @@ exponentiation(num_sys_start, i) {
     result = 1;
   }
   return result;
-} //Функция возводящая в степень (Function that exponentiate numbers)
+} //Функция возводящая в степень (Funon that exponentiate numbers)

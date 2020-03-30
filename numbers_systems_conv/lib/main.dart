@@ -4,7 +4,7 @@ import 'main1.dart';
 import 'package:flutter/services.dart';
 
 main() {
-  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  debugDefaultTargetPlatformOverride = TargetPlatform.windows;
   runApp(MaterialApp(home: Conv()));
 }
 
@@ -86,9 +86,17 @@ class _ConvState extends State<Conv> {
                   setState(() {
                     try {
                       num_sys_start = int.parse(text2);
-                      a = 0;
-                      if (b != 1) {
+                      if (num_sys_start > 1 && num_sys_start < 37) {
+                        a = 0;
+                      }
+                      else {
+                        a = 1;
+                      }
+                      if (b != 1 && a != 1) {
                         finish_variable = "There will be output";
+                      }
+                      else {
+                        finish_variable = "Invalid input";
                       }
                     } on FormatException {
                       finish_variable = 'Invalid input';
@@ -107,9 +115,17 @@ class _ConvState extends State<Conv> {
                     setState(() {
                       try {
                         num_sys_end = int.parse(text3);
-                        b = 0;
-                        if (a != 1) {
+                        if (num_sys_end > 1 && num_sys_end < 37) {
+                          b = 0;
+                        }
+                        else {
+                          b = 1;
+                        }
+                        if (a != 1 && b != 1) {
                           finish_variable = "There will be output";
+                        }
+                        else {
+                          finish_variable = "Invalid input";
                         }
                       } on FormatException {
                         finish_variable = 'Invalid input';
@@ -118,7 +134,7 @@ class _ConvState extends State<Conv> {
                     });
                   }),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 15.0),
+                padding: const EdgeInsets.fromLTRB(20.0, 90.0, 20.0, 15.0),
                 child: Text(
                   '$finish_variable',
                   style: TextStyle(fontSize: 20.0, color: Colors.teal, fontWeight: FontWeight.bold),
@@ -133,14 +149,16 @@ class _ConvState extends State<Conv> {
             elevation: 8.0,
             onPressed: () {
               setState(() {
-                finish_variable = distribution(
-                        num_10, num_sys_start, num_sys_end, num_2, output)
-                    .toString();
+                if (a != 1 && b !=1) {
+                  finish_variable = "";
+                  num_2.clear();
+                  finish_variable = distribution(num_10, num_sys_start, num_sys_end, num_2, output).toString();
+                }
               });
             },
-            tooltip: 'Perform',
+            tooltip: 'Go',
             backgroundColor: Colors.teal,
-            child: Icon(Icons.done_outline)) // This trailing comma makes auto-formatting nicer for build methods.
+            child: Text('Go'))// This trailing comma makes auto-formatting nicer for build methods.
         );
   }
 }

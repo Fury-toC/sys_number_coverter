@@ -1,5 +1,5 @@
-name: numbers_systems_conv
-description: A new Flutter project.
+name: numberssystemconvcopy
+description: Just copy for try to correct mistake with image asset
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -28,13 +28,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  #flutter_launch_icons: "^0.7.3"
-
-#flutter_icons:
- # android: "launcher_icon"
-  #ios: true
-  #image_path: "icon/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
